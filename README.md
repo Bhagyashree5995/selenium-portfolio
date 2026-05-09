@@ -1,6 +1,6 @@
 # Selenium Automation Portfolio
 
-Author: Bhagyashree Manjithaya - Quality Analyst
+Author: Bhagyashree Manjithaya - QA Automation Engineer
 
 ##Projects
 - test_login.py - Selenium login tests - 2 tests passing
