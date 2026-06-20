@@ -33,10 +33,10 @@ selenium-portfolio/
 
 ## ✅ Test Scenarios Covered
 
-- User login and logout
-- Form validation
-- Navigation testing
-- UI element verification
+- test_login.py — Login validation (valid & invalid credentials) — 2 tests passing
+- test_api.py — REST API testing (GET, PUT, POST, DELETE) — 6 tests passing
+- test_ui.py — UI testing on saucedemo.com — 2 tests passing
+- test_combined.py — Combined API + UI scenario — 1 test passing
 
 ---
 
