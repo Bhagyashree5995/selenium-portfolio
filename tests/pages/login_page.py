@@ -16,6 +16,10 @@ class LoginPage:
         self.driver.find_element(By.CSS_SELECTOR, "button").click()
 
     def is_login_successful(self):
+        from selenium.webdriver.support.ui import WebDriverWait
+        WebDriverWait(self.driver, 10).until(
+            lambda driver: "/secure" in driver.current_url
+        )
         return "/secure" in self.driver.current_url
     def is_login_failed(self):
         return "/secure" not in self.driver.current_url

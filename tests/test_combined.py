@@ -1,26 +1,22 @@
 import requests
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-BASE_URL = "https://reqres.in/api"
+BASE_URL = "https://jsonplaceholder.typicode.com"
 
 
 def test_api_then_ui():
     # ---- PART 1: API TEST ----
     print("\n🔌 Starting API check...")
 
-    response = requests.get(f"{BASE_URL}/users/2")
+    response = requests.get(f"{BASE_URL}/posts/1")
     assert response.status_code == 200
-
-    user_data = response.json()["data"]
-    user_email = user_data["email"]
-    assert "@" in user_email
-
-    print(f"✅ API returned user: {user_email}")
+    post_data = response.json()
+    assert "title" in post_data
+    assert "body" in post_data
+    print(f"✅ API returned post: {post_data['title']}")
 
     # ---- PART 2: UI TEST ----
     print("\n🌐 Starting UI test...")
@@ -30,10 +26,7 @@ def test_api_then_ui():
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
 
-    driver = webdriver.Chrome(
-        service=Service(ChromeDriverManager().install()),
-        options=options
-    )
+    driver = webdriver.Chrome(options=options)
 
     try:
         driver.get("https://www.saucedemo.com")
