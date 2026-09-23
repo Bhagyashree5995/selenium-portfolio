@@ -22,15 +22,14 @@ A small UI and API test suite built with Selenium WebDriver, pytest and the Page
 
 ## Running it locally
 
-Requires Python 3.11+ and Chrome.
-
+```
 git clone https://github.com/Bhagyashree5995/selenium-portfolio.git
 cd selenium-portfolio
 python -m venv .venv
 .venv\Scripts\activate
 pip install -r requirements.txt
 pytest -v
-
+```
 
 ## CI
 
